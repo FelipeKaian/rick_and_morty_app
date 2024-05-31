@@ -32,8 +32,7 @@ class LoadingState extends State<Loading> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return RotationTransition(
       turns: animation,
-      child: Image.network(
-                          "http://cdn.shopify.com/s/files/1/0321/9596/9069/collections/cartoon-network-portal.png?v=1588605085"),
+      child: Image.network("http://cdn.shopify.com/s/files/1/0321/9596/9069/collections/cartoon-network-portal.png?v=1588605085"),
     );
   }
 }

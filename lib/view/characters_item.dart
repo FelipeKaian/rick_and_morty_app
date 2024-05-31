@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_app/model/character.dart';
-import 'package:rick_and_morty_app/widgets/loading.dart';
+import 'package:rick_and_morty_app/view/character_details.dart';
+import 'package:rick_and_morty_app/view/loading.dart';
 
 class CharacterItem extends StatelessWidget {
   final Character character;
@@ -12,14 +13,14 @@ class CharacterItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Loading()));
+            context, MaterialPageRoute(builder: (context) => CharacterDetails(character)));
       },
       child: Container(
         height: 220,
         width: 200,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(15)),
-            color: Color.fromARGB(255, 51, 51, 51)),
+            color: Theme.of(context).primaryColor),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Row(
@@ -30,6 +31,7 @@ class CharacterItem extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(15)),
+                    color: Color.fromARGB(255, 37, 119, 12),
                     image: DecorationImage(
                         image: NetworkImage(character.image),
                         fit: BoxFit.cover),
